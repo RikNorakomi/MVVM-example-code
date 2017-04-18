@@ -12,11 +12,18 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        // using lambda's through jackOption still gives occasional issues on consecutive builds
+        // as a quick fix retrolambdo is used, but we should revert back to jack later
+
 //        jackOptions {
 //            enabled true
 //        }
-
     }
+
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false

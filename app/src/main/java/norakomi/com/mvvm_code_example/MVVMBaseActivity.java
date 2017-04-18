@@ -17,7 +17,7 @@ import rx.subscriptions.CompositeSubscription;
  * www.norakomi.com
  */
 
-abstract class MVVMBaseActivity extends AppCompatActivity{
+abstract class MVVMBaseActivity extends AppCompatActivity {
 
     @NonNull
     public PosterOverviewViewModel mViewModel;
@@ -41,7 +41,8 @@ abstract class MVVMBaseActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         // call viewModel to cleanup references that could cause memory leaks
-        mViewModel.onActivityDestroyed();
+        if (mViewModel != null)
+            mViewModel.onActivityDestroyed();
         super.onDestroy();
     }
 

@@ -20,6 +20,15 @@ https://medium.com/@florina.muntenescu/mvvm-rxjava-the-perfect-mix-2d7c3dc8b418
 * Eric Maxwell - MVC vs. MVP vs. MVVM on Android<br>
 https://realm.io/news/eric-maxwell-mvc-mvp-and-mvvm-on-android/
 
+* George Mount - Android Data Binding: RecyclerView - Reduce, Reuse, Rebind<br>
+https://medium.com/google-developers/android-data-binding-recyclerview-db7c40d9f0e4
+
+* George Mount - Android Data Binding: Adding some variability - Making View IDs Unnecessary<br>
+https://medium.com/google-developers/android-data-binding-adding-some-variability-1fe001b3abcc
+
+* Lars Vogel - Using data binding in Android - Tutorial
+http://www.vogella.com/tutorials/AndroidDatabinding/article.html
+
 
 Youtube:
 * Functional MVVM using RxJava and Android Data Binding - Manas Chaudhari, TinyOwl<br>
