@@ -2,9 +2,7 @@ package norakomi.com.mvvm_code_example.DataModel;
 
 import android.support.annotation.NonNull;
 
-import java.util.List;
-
-import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
+import norakomi.com.mvvm_code_example.DataModel.Model.SovietArtMePosters;
 import rx.Observable;
 
 /**
@@ -19,5 +17,5 @@ import rx.Observable;
 public interface IDataModel {
 
     @NonNull
-    Observable<List<Poster>> getPosters();
+    Observable<SovietArtMePosters> getPosters();
 }

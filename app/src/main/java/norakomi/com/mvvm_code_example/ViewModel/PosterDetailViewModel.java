@@ -44,7 +44,7 @@ public class PosterDetailViewModel extends BaseViewModel {
     public void setDisplayablePoster(@NonNull Poster displayablePoster) {
         this.displayablePoster = displayablePoster;
         this.title = displayablePoster.getTitle();
-        this.imageUrl = displayablePoster.getUrl();
+        this.imageUrl = displayablePoster.getThumbnailUrl();
     }
 
     public Observable<Poster> getDisplayablePoster() {

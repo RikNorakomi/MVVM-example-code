@@ -4,10 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
 
 import norakomi.com.mvvm_code_example.DataModel.IDataModel;
-import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
+import norakomi.com.mvvm_code_example.DataModel.Model.SovietArtMePosters;
 import rx.Observable;
 
 /**
@@ -33,7 +32,7 @@ public abstract class BaseViewModel {
     }
 
     @NonNull
-    public Observable<List<Poster>> getPosters() {
+    public Observable<SovietArtMePosters> getPosters() {
         return mDataModel.getPosters();
     }
 

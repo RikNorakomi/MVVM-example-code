@@ -17,25 +17,27 @@ public class Poster implements Serializable {
 
     public static final String INTENT_KEY = "poster";
 
-    @NonNull
-    private final String mTitle;
+    private final String THUMBNAIL_BASE_PATH = "http://sovietart.me/img/posters/190px/";
 
-    @NonNull
-    private final String mUrl;
-
+    private String title;
+    private String filename;
 
     public Poster(@NonNull String title, @NonNull String url) {
-        mTitle = title;
-        mUrl = url;
+        this.title = title;
+        filename = url;
+    }
+
+    public String getThumbnailUrl() {
+        return THUMBNAIL_BASE_PATH + filename;
     }
 
     @NonNull
     public String getTitle() {
-        return mTitle;
+        return title;
     }
 
     @NonNull
-    public String getUrl() {
-        return mUrl;
+    public String getFilename() {
+        return filename;
     }
 }

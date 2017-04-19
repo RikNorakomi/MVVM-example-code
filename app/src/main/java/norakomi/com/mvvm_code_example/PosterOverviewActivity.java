@@ -6,9 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.List;
-
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
+import norakomi.com.mvvm_code_example.DataModel.Model.SovietArtMePosters;
 import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
 import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
 import rx.android.schedulers.AndroidSchedulers;
@@ -16,6 +15,7 @@ import rx.schedulers.Schedulers;
 
 public class PosterOverviewActivity extends MVVMBaseActivity implements IPosterOverviewNavigator {
 
+    private final String TAG = getClass().getSimpleName();
     private RecyclerView mRecyclerView;
 
     @Override
@@ -38,14 +38,15 @@ public class PosterOverviewActivity extends MVVMBaseActivity implements IPosterO
 
     @Override
     public void bindRxSubscriptions() {
+        // todo: add error handling
         mSubscription.add(mViewModel.getPosters()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::setPosters));
     }
 
-    private void setPosters(@NonNull final List<Poster> posters) {
-        ((PosterAdapter) mRecyclerView.getAdapter()).updatePosters(posters);
+    private void setPosters(@NonNull final SovietArtMePosters sovietArtMePosters) {
+        ((PosterAdapter) mRecyclerView.getAdapter()).updatePosters(sovietArtMePosters.getPosters());
     }
 
     @Override
