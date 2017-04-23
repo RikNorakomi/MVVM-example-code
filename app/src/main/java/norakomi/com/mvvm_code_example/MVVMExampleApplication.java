@@ -5,8 +5,10 @@ import android.support.annotation.NonNull;
 
 import norakomi.com.mvvm_code_example.DataModel.DataModel;
 import norakomi.com.mvvm_code_example.DataModel.IDataModel;
+import norakomi.com.mvvm_code_example.Providers.GlideProvider;
+import norakomi.com.mvvm_code_example.Providers.IGlideProvider;
 import norakomi.com.mvvm_code_example.ViewModel.PosterDetailViewModel;
-import norakomi.com.mvvm_code_example.ViewModel.BaseViewModel;
+import norakomi.com.mvvm_code_example.ViewModel.ABaseViewModel;
 import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
 import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
 
@@ -34,10 +36,10 @@ public class MVVMExampleApplication extends Application {
     }
 
     @NonNull
-    public BaseViewModel getViewModel(@NonNull ViewModels requestedViewModel) {
+    public ABaseViewModel getViewModel(@NonNull ViewModels requestedViewModel) {
         switch (requestedViewModel) {
             case POSTER_DETAIL:
-                return new PosterDetailViewModel(getDataModel());
+                return new PosterDetailViewModel(getDataModel(), new GlideProvider());
             case POSTER_OVERVIEW:
                 return new PosterOverviewViewModel(getDataModel());
             default:

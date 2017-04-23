@@ -23,7 +23,7 @@ import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
  * www.norakomi.com
  */
 
-class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.ViewHolder> {
+public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.ViewHolder> {
 
     private final PosterOverviewViewModel mViewModel;
     private ArrayList<Poster> mPosters = new ArrayList<>();

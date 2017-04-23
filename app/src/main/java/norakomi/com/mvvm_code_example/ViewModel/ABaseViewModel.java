@@ -1,12 +1,12 @@
 package norakomi.com.mvvm_code_example.ViewModel;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 
 import norakomi.com.mvvm_code_example.DataModel.IDataModel;
 import norakomi.com.mvvm_code_example.DataModel.Model.SovietArtMePosters;
+import norakomi.com.mvvm_code_example.Providers.IGlideProvider;
 import rx.Observable;
 
 /**
@@ -18,16 +18,15 @@ import rx.Observable;
  * www.norakomi.com
  */
 
-public abstract class BaseViewModel {
+public abstract class ABaseViewModel {
 
-
-    @Nullable
-    public WeakReference<?> mNavigator;
+    WeakReference<?> mNavigator;
+    public static IGlideProvider mGlideProvider;
 
     @NonNull
     private final IDataModel mDataModel;
 
-    public BaseViewModel(@NonNull final IDataModel dataModel) {
+    public ABaseViewModel(@NonNull final IDataModel dataModel) {
         mDataModel = dataModel;
     }
 
@@ -36,10 +35,10 @@ public abstract class BaseViewModel {
         return mDataModel.getPosters();
     }
 
-
     public void onActivityDestroyed() {
         // Clear references to avoid potential memory leaks.
         mNavigator = null;
+        mGlideProvider = null;
     }
 }
 

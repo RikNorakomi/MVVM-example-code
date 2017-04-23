@@ -1,4 +1,4 @@
-package norakomi.com.mvvm_code_example;
+package norakomi.com.mvvm_code_example.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.support.v7.widget.RecyclerView;
 
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
 import norakomi.com.mvvm_code_example.DataModel.Model.SovietArtMePosters;
+import norakomi.com.mvvm_code_example.IPosterOverviewNavigator;
+import norakomi.com.mvvm_code_example.PosterAdapter;
+import norakomi.com.mvvm_code_example.R;
 import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
 import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
 import rx.android.schedulers.AndroidSchedulers;
@@ -15,7 +18,6 @@ import rx.schedulers.Schedulers;
 
 public class PosterOverviewActivity extends MVVMBaseActivity implements IPosterOverviewNavigator {
 
-    private final String TAG = getClass().getSimpleName();
     private RecyclerView mRecyclerView;
 
     @Override

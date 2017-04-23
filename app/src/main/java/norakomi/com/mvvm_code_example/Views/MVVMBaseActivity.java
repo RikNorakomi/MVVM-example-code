@@ -1,9 +1,10 @@
-package norakomi.com.mvvm_code_example;
+package norakomi.com.mvvm_code_example.Views;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
-import norakomi.com.mvvm_code_example.ViewModel.BaseViewModel;
+import norakomi.com.mvvm_code_example.MVVMExampleApplication;
+import norakomi.com.mvvm_code_example.ViewModel.ABaseViewModel;
 import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
 import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
 import rx.subscriptions.CompositeSubscription;
@@ -58,7 +59,7 @@ abstract class MVVMBaseActivity extends AppCompatActivity {
     }
 
     @NonNull
-    public BaseViewModel getViewModel(ViewModels requestedViewModel) {
+    public ABaseViewModel getViewModel(ViewModels requestedViewModel) {
         return ((MVVMExampleApplication) getApplication()).getViewModel(requestedViewModel);
     }
 

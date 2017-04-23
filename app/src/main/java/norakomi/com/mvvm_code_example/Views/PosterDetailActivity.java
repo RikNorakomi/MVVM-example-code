@@ -1,4 +1,4 @@
-package norakomi.com.mvvm_code_example;
+package norakomi.com.mvvm_code_example.Views;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
+import norakomi.com.mvvm_code_example.IPosterDetailNavigator;
+import norakomi.com.mvvm_code_example.R;
 import norakomi.com.mvvm_code_example.ViewModel.PosterDetailViewModel;
 import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
 import norakomi.com.mvvm_code_example.databinding.ActivityPosterDetailBinding;

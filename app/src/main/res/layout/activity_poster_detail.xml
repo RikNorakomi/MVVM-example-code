@@ -17,7 +17,7 @@
             android:id="@+id/iv_poster_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:imageUrl="@{viewModel.imageUrl}"/>
+            app:loadImage="@{viewModel.imageUrl}"/>
 
         <TextView
             android:id="@+id/tv_poster_detail"

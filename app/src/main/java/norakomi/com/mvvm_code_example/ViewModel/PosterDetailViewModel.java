@@ -3,19 +3,14 @@ package norakomi.com.mvvm_code_example.ViewModel;
 import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 
 import java.lang.ref.WeakReference;
 
 import norakomi.com.mvvm_code_example.DataModel.IDataModel;
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
 import norakomi.com.mvvm_code_example.IPosterDetailNavigator;
+import norakomi.com.mvvm_code_example.Providers.IGlideProvider;
 import rx.Observable;
 
 /**
@@ -27,14 +22,15 @@ import rx.Observable;
  * www.norakomi.com
  */
 
-public class PosterDetailViewModel extends BaseViewModel {
+public class PosterDetailViewModel extends ABaseViewModel {
 
     private Poster displayablePoster;
     public String title;
     public String imageUrl;
 
-    public PosterDetailViewModel(@NonNull IDataModel dataModel) {
+    public PosterDetailViewModel(@NonNull IDataModel dataModel, @NonNull IGlideProvider glideProvider) {
         super(dataModel);
+        mGlideProvider = glideProvider;
     }
 
     public void setNavigator(@Nullable IPosterDetailNavigator navigator) {
@@ -51,28 +47,18 @@ public class PosterDetailViewModel extends BaseViewModel {
         return Observable.just(displayablePoster);
     }
 
-    @BindingAdapter("imageUrl")
+    @BindingAdapter("loadImage")
     public static void loadImage(ImageView view, String imageUrl) {
-        // todo: Glide implementation should be abstracted out of viewModel
-        Glide.with(view.getContext())
-                .load(imageUrl)
-                .placeholder(null) // todo: add placeHolder
-                .listener(new RequestListener<String, GlideDrawable>() {
-                    @Override
-                    public boolean onException(Exception e, String s, Target<GlideDrawable> target, boolean b) {
-                        Log.e(getClass().getSimpleName(), "Glide load exception for url: " + imageUrl +
-                                "String = " + s +
-                                "Exception = " + e.toString());
-                        return false;
-                    }
+        if (mGlideProvider != null) {
+            mGlideProvider.loadImage(view, imageUrl, (e, s, target, b) -> {
+                // todo logError
+                onErrorLoadingImage();
+            });
+        }
+    }
 
-                    @Override
-                    public boolean onResourceReady(GlideDrawable glideDrawable, String s, Target<GlideDrawable> target, boolean b, boolean b1) {
-                        // successful
-                        return false;
-                    }
-                })
-                .into(view);
+    private static void onErrorLoadingImage() {
+        // todo: notify user of error
     }
 
     public void navigateBack() {

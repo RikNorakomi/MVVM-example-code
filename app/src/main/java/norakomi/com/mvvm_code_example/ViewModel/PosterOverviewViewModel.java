@@ -18,7 +18,7 @@ import norakomi.com.mvvm_code_example.IPosterOverviewNavigator;
  * www.norakomi.com
  */
 
-public class PosterOverviewViewModel extends BaseViewModel {
+public class PosterOverviewViewModel extends ABaseViewModel {
 
     public PosterOverviewViewModel(@NonNull IDataModel dataModel) {
         super(dataModel);
