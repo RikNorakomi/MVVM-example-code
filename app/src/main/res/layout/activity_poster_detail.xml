@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="norakomi.com.mvvm_code_example.ViewModel.PosterDetailViewModel"/>
+            type="norakomi.com.mvvm_code_example.ViewModels.PosterDetailViewModel"/>
     </data>
 
     <RelativeLayout

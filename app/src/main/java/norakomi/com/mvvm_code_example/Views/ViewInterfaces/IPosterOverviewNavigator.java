@@ -1,4 +1,4 @@
-package norakomi.com.mvvm_code_example;
+package norakomi.com.mvvm_code_example.Views.ViewInterfaces;
 
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
 

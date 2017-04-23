@@ -3,7 +3,7 @@
     <data>
         <variable
             name="vm"
-            type="norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel"/>
+            type="norakomi.com.mvvm_code_example.ViewModels.PosterOverviewViewModel"/>
 
         <import type="android.view.View"/>
     </data>

@@ -6,10 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
-import norakomi.com.mvvm_code_example.IPosterDetailNavigator;
+import norakomi.com.mvvm_code_example.Views.ViewInterfaces.IPosterDetailNavigator;
 import norakomi.com.mvvm_code_example.R;
-import norakomi.com.mvvm_code_example.ViewModel.PosterDetailViewModel;
-import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
+import norakomi.com.mvvm_code_example.ViewModels.PosterDetailViewModel;
+import norakomi.com.mvvm_code_example.ViewModels.ViewModels;
 import norakomi.com.mvvm_code_example.databinding.ActivityPosterDetailBinding;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

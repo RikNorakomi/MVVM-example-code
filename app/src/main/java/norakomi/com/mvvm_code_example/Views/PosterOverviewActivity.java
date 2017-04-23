@@ -8,11 +8,11 @@ import android.support.v7.widget.RecyclerView;
 
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
 import norakomi.com.mvvm_code_example.DataModel.Model.SovietArtMePosters;
-import norakomi.com.mvvm_code_example.IPosterOverviewNavigator;
-import norakomi.com.mvvm_code_example.PosterAdapter;
+import norakomi.com.mvvm_code_example.Views.ViewInterfaces.IPosterOverviewNavigator;
+import norakomi.com.mvvm_code_example.Views.ViewAdapters.PosterAdapter;
 import norakomi.com.mvvm_code_example.R;
-import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
-import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
+import norakomi.com.mvvm_code_example.ViewModels.PosterOverviewViewModel;
+import norakomi.com.mvvm_code_example.ViewModels.ViewModels;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 

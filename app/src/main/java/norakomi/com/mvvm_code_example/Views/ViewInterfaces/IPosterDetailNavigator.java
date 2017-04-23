@@ -1,4 +1,4 @@
-package norakomi.com.mvvm_code_example.ViewModel;
+package norakomi.com.mvvm_code_example.Views.ViewInterfaces;
 
 /**
  * Created by Rik van Velzen, Norakomi.com, on 17-4-2017.
@@ -9,8 +9,7 @@ package norakomi.com.mvvm_code_example.ViewModel;
  * www.norakomi.com
  */
 
-public enum ViewModels {
+public interface IPosterDetailNavigator {
 
-    POSTER_OVERVIEW,
-    POSTER_DETAIL
+    public void navigateBackToOverview();
 }

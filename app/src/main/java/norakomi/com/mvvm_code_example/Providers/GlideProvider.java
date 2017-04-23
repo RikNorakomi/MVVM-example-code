@@ -19,17 +19,20 @@ import com.bumptech.glide.request.target.Target;
 
 public class GlideProvider implements IGlideProvider {
 
+    private final String TAG = getClass().getSimpleName();
+
     @Override
     public void loadImage(ImageView view, String imageUrl, IGliderErrorCallback callback) {
+        Log.d(TAG, "loading image with url" + imageUrl);
         Glide.with(view.getContext())
                 .load(imageUrl)
                 .placeholder(null) // todo: add placeHolder
                 .listener(new RequestListener<String, GlideDrawable>() {
                     @Override
                     public boolean onException(Exception e, String s, Target<GlideDrawable> target, boolean b) {
-                        Log.e(getClass().getSimpleName(), "Glide load exception for url: " + imageUrl +
-                                "String = " + s +
-                                "Exception = " + e.toString());
+                        Log.e(TAG, "Glide load exception for url: " + imageUrl +
+                                ", String = " + s +
+                                ", Exception = " + e.toString());
                         callback.onError(e, s, target, b);
                         return false;
                     }
@@ -37,6 +40,7 @@ public class GlideProvider implements IGlideProvider {
                     @Override
                     public boolean onResourceReady(GlideDrawable glideDrawable, String s, Target<GlideDrawable> target, boolean b, boolean b1) {
                         // successful
+                        Log.d(TAG, "image successfully loaded!");
                         return false;
                     }
                 })

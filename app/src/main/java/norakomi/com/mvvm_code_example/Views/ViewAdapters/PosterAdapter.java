@@ -1,4 +1,4 @@
-package norakomi.com.mvvm_code_example;
+package norakomi.com.mvvm_code_example.Views.ViewAdapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
-import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
+import norakomi.com.mvvm_code_example.R;
+import norakomi.com.mvvm_code_example.ViewModels.PosterOverviewViewModel;
 
 
 /**

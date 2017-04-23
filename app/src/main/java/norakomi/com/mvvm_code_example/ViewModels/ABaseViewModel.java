@@ -1,6 +1,7 @@
-package norakomi.com.mvvm_code_example.ViewModel;
+package norakomi.com.mvvm_code_example.ViewModels;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 
@@ -21,13 +22,18 @@ import rx.Observable;
 public abstract class ABaseViewModel {
 
     WeakReference<?> mNavigator;
-    public static IGlideProvider mGlideProvider;
+    static IGlideProvider mGlideProvider;
 
     @NonNull
     private final IDataModel mDataModel;
 
-    public ABaseViewModel(@NonNull final IDataModel dataModel) {
+    ABaseViewModel(@NonNull final IDataModel dataModel) {
+        this(dataModel, null);
+    }
+
+    ABaseViewModel(@NonNull IDataModel dataModel, @Nullable IGlideProvider glideProvider) {
         mDataModel = dataModel;
+        mGlideProvider = glideProvider;
     }
 
     @NonNull

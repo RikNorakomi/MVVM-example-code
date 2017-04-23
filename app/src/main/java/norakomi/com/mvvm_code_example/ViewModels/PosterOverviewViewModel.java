@@ -1,4 +1,4 @@
-package norakomi.com.mvvm_code_example.ViewModel;
+package norakomi.com.mvvm_code_example.ViewModels;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 
 import norakomi.com.mvvm_code_example.DataModel.IDataModel;
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
-import norakomi.com.mvvm_code_example.IPosterOverviewNavigator;
+import norakomi.com.mvvm_code_example.Views.ViewInterfaces.IPosterOverviewNavigator;
 
 /**
  * Created by Rik van Velzen, Norakomi.com, on 16-4-2017.

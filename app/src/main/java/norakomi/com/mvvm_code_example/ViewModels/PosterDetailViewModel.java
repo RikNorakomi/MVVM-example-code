@@ -1,4 +1,4 @@
-package norakomi.com.mvvm_code_example.ViewModel;
+package norakomi.com.mvvm_code_example.ViewModels;
 
 import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 
 import norakomi.com.mvvm_code_example.DataModel.IDataModel;
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
-import norakomi.com.mvvm_code_example.IPosterDetailNavigator;
+import norakomi.com.mvvm_code_example.Views.ViewInterfaces.IPosterDetailNavigator;
 import norakomi.com.mvvm_code_example.Providers.IGlideProvider;
 import rx.Observable;
 
@@ -29,8 +29,8 @@ public class PosterDetailViewModel extends ABaseViewModel {
     public String imageUrl;
 
     public PosterDetailViewModel(@NonNull IDataModel dataModel, @NonNull IGlideProvider glideProvider) {
-        super(dataModel);
-        mGlideProvider = glideProvider;
+        super(dataModel, glideProvider);
+//        mGlideProvider = glideProvider;
     }
 
     public void setNavigator(@Nullable IPosterDetailNavigator navigator) {

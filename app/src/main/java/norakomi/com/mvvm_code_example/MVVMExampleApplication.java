@@ -6,11 +6,10 @@ import android.support.annotation.NonNull;
 import norakomi.com.mvvm_code_example.DataModel.DataModel;
 import norakomi.com.mvvm_code_example.DataModel.IDataModel;
 import norakomi.com.mvvm_code_example.Providers.GlideProvider;
-import norakomi.com.mvvm_code_example.Providers.IGlideProvider;
-import norakomi.com.mvvm_code_example.ViewModel.PosterDetailViewModel;
-import norakomi.com.mvvm_code_example.ViewModel.ABaseViewModel;
-import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
-import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
+import norakomi.com.mvvm_code_example.ViewModels.PosterDetailViewModel;
+import norakomi.com.mvvm_code_example.ViewModels.ABaseViewModel;
+import norakomi.com.mvvm_code_example.ViewModels.PosterOverviewViewModel;
+import norakomi.com.mvvm_code_example.ViewModels.ViewModels;
 
 /**
  * Created by Rik van Velzen, Norakomi.com, on 16-4-2017.

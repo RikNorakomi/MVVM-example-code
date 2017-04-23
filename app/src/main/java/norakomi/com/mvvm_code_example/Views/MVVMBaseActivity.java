@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
 import norakomi.com.mvvm_code_example.MVVMExampleApplication;
-import norakomi.com.mvvm_code_example.ViewModel.ABaseViewModel;
-import norakomi.com.mvvm_code_example.ViewModel.PosterOverviewViewModel;
-import norakomi.com.mvvm_code_example.ViewModel.ViewModels;
+import norakomi.com.mvvm_code_example.ViewModels.ABaseViewModel;
+import norakomi.com.mvvm_code_example.ViewModels.PosterOverviewViewModel;
+import norakomi.com.mvvm_code_example.ViewModels.ViewModels;
 import rx.subscriptions.CompositeSubscription;
 
 /**
