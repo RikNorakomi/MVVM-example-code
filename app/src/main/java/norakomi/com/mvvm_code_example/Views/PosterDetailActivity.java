@@ -43,6 +43,7 @@ public class PosterDetailActivity extends MVVMBaseActivity implements IPosterDet
 
     @Override
     public void bindRxSubscriptions() {
+        // todo: remove!!
         mSubscription.add(mViewModel.getDisplayablePoster()
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
-            name="vm"
+            name="viewModel"
             type="norakomi.com.mvvm_code_example.ViewModels.PosterOverviewViewModel"/>
 
         <import type="android.view.View"/>
@@ -16,10 +18,12 @@
         android:layout_height="match_parent"
         tools:context="norakomi.com.mvvm_code_example.Views.PosterOverviewActivity">
 
+        <!--app:items="@{viewModel.recyclerItems}"-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/overview_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"/>
 
     </RelativeLayout>
 </layout>

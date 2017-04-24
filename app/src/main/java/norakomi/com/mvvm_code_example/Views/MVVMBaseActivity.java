@@ -26,6 +26,21 @@ abstract class MVVMBaseActivity extends AppCompatActivity {
     @NonNull
     public CompositeSubscription mSubscription;
 
+    /**
+     * Every sub class implements bindRxSubscriptions method where rx java subscription can be managed
+     * This base class takes care of
+     */
+    public abstract void bindRxSubscriptions();
+
+    private void unBindRxSubscriptions() {
+        mSubscription.unsubscribe();
+    }
+
+    @NonNull
+    public ABaseViewModel getViewModel(ViewModels requestedViewModel) {
+        return ((MVVMExampleApplication) getApplication()).getViewModel(requestedViewModel);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -48,19 +63,6 @@ abstract class MVVMBaseActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Every sub class implements bindRxSubscriptions method where rx java subscription can be managed
-     * This base class takes care of
-     */
-    public abstract void bindRxSubscriptions();
 
-    private void unBindRxSubscriptions() {
-        mSubscription.unsubscribe();
-    }
-
-    @NonNull
-    public ABaseViewModel getViewModel(ViewModels requestedViewModel) {
-        return ((MVVMExampleApplication) getApplication()).getViewModel(requestedViewModel);
-    }
 
 }
