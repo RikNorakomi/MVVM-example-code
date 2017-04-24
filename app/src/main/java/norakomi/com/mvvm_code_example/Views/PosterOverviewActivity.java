@@ -31,10 +31,10 @@ public class PosterOverviewActivity extends MVVMBaseActivity implements IPosterO
 
     @Override
     public void bindRxSubscriptions() {
-        // todo: add error handling
         mSubscription.add(mViewModel.loadPosters()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnError(throwable -> mViewModel.onErrorLoadPosters(throwable))
                 .subscribe(this::updateViewModel));
     }
 

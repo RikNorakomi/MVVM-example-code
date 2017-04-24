@@ -6,13 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
-import norakomi.com.mvvm_code_example.Views.ViewInterfaces.IPosterDetailNavigator;
 import norakomi.com.mvvm_code_example.R;
 import norakomi.com.mvvm_code_example.ViewModels.PosterDetailViewModel;
 import norakomi.com.mvvm_code_example.ViewModels.ViewModels;
+import norakomi.com.mvvm_code_example.Views.ViewInterfaces.IPosterDetailNavigator;
 import norakomi.com.mvvm_code_example.databinding.ActivityPosterDetailBinding;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by Rik van Velzen, Norakomi.com, on 16-4-2017.
@@ -43,11 +41,7 @@ public class PosterDetailActivity extends MVVMBaseActivity implements IPosterDet
 
     @Override
     public void bindRxSubscriptions() {
-        // todo: remove!!
-        mSubscription.add(mViewModel.getDisplayablePoster()
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe());
+        // unused, but for sake of example/pattern it's implemented here
     }
 
     @Override

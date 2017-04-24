@@ -42,7 +42,8 @@ public class MVVMExampleApplication extends Application {
             case POSTER_OVERVIEW:
                 return new PosterOverviewViewModel(getDataModel());
             default:
-                throw new IllegalArgumentException();
+                // todo: preferably never throw an exception
+                throw new IllegalArgumentException("Unhandled argument: " + requestedViewModel.name());
         }
     }
 }

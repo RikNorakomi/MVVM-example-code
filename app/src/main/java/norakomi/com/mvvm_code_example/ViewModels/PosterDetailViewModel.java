@@ -30,7 +30,6 @@ public class PosterDetailViewModel extends ABaseViewModel {
 
     public PosterDetailViewModel(@NonNull IDataModel dataModel, @NonNull IGlideProvider glideProvider) {
         super(dataModel, glideProvider);
-//        mGlideProvider = glideProvider;
     }
 
     public void setNavigator(@Nullable IPosterDetailNavigator navigator) {

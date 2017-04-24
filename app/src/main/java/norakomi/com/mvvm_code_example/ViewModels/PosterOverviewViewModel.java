@@ -47,4 +47,8 @@ public class PosterOverviewViewModel extends ABaseViewModel {
             ((IPosterOverviewNavigator) mNavigator.get()).openPosterDetail(poster);
         }
     }
+
+    public void onErrorLoadPosters(Throwable throwable) {
+        // todo: display error notification to user
+    }
 }
