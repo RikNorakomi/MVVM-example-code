@@ -37,8 +37,8 @@ public abstract class ABaseViewModel {
     }
 
     @NonNull
-    public Observable<SovietArtMePosters> getPosters() {
-        return mDataModel.getPosters();
+    public Observable<SovietArtMePosters> loadPosters() {
+        return mDataModel.loadPosters();
     }
 
     public void onActivityDestroyed() {

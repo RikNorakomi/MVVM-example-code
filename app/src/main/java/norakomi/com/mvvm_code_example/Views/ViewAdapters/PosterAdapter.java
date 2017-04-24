@@ -1,6 +1,6 @@
 package norakomi.com.mvvm_code_example.Views.ViewAdapters;
 
-import android.support.annotation.NonNull;
+import android.databinding.BindingAdapter;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,16 +27,17 @@ import norakomi.com.mvvm_code_example.ViewModels.PosterOverviewViewModel;
 public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.ViewHolder> {
 
     private final PosterOverviewViewModel mViewModel;
-    private ArrayList<Poster> mPosters = new ArrayList<>();
+    public static ArrayList<Poster> mPosters = new ArrayList<>();
 
     public PosterAdapter(PosterOverviewViewModel viewModel) {
         mViewModel = viewModel;
     }
 
-    public void updatePosters(@NonNull List<Poster> posters) {
+    @BindingAdapter("posters")
+    public static void setPosters(RecyclerView view, List<Poster> posters) {
         mPosters.clear();
         mPosters.addAll(posters);
-        notifyDataSetChanged();
+        view.getAdapter().notifyDataSetChanged();
     }
 
     @Override
@@ -55,7 +56,7 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.ViewHolder
         return mPosters.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView title;
         private Poster poster;

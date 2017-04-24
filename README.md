@@ -29,6 +29,9 @@ https://medium.com/google-developers/android-data-binding-adding-some-variabilit
 * Lars Vogel - Using data binding in Android - Tutorial
 http://www.vogella.com/tutorials/AndroidDatabinding/article.html
 
+* Ahmed Rizwan - Simplifying RecyclerView Adapters with Rx & Databinding
+https://medium.freecodecamp.com/simplifying-recyclerview-adapters-with-rx-databinding-f02ebed0b386
+
 
 Youtube:
 * Functional MVVM using RxJava and Android Data Binding - Manas Chaudhari, TinyOwl<br>

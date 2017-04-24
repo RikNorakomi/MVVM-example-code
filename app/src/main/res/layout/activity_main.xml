@@ -18,11 +18,12 @@
         android:layout_height="match_parent"
         tools:context="norakomi.com.mvvm_code_example.Views.PosterOverviewActivity">
 
-        <!--app:items="@{viewModel.recyclerItems}"-->
+        <!--app:mPosters="@{viewModel.recyclerItems}"-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/overview_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:posters="@{viewModel.posters}"
             app:layoutManager="LinearLayoutManager"/>
 
     </RelativeLayout>

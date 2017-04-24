@@ -24,7 +24,6 @@ public class DataModel implements IDataModel {
 
     public static String BASE_URL = "http://www.norakomi.com/assets/json/";
 
-    //todo: abstract retrofit impl. out of datamodel
     private Retrofit mRetrofit;
     private RxJavaCallAdapterFactory mRxAdapter;
 
@@ -54,7 +53,7 @@ public class DataModel implements IDataModel {
 
     @NonNull
     @Override
-    public Observable<SovietArtMePosters> getPosters() {
+    public Observable<SovietArtMePosters> loadPosters() {
         return getPosterApiService().loadPostersData();
     }
 }

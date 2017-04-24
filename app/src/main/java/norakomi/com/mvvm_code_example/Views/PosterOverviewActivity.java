@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
 import norakomi.com.mvvm_code_example.DataModel.Model.SovietArtMePosters;
@@ -19,15 +18,13 @@ import rx.schedulers.Schedulers;
 
 public class PosterOverviewActivity extends MVVMBaseActivity implements IPosterOverviewNavigator {
 
-    private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewModel = (PosterOverviewViewModel) getViewModel(ViewModels.POSTER_OVERVIEW);
         mViewModel.setNavigator(this);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(mViewModel);
         binding.overviewRecycler.setAdapter(new PosterAdapter(mViewModel));
     }
@@ -35,14 +32,14 @@ public class PosterOverviewActivity extends MVVMBaseActivity implements IPosterO
     @Override
     public void bindRxSubscriptions() {
         // todo: add error handling
-        mSubscription.add(mViewModel.getPosters()
+        mSubscription.add(mViewModel.loadPosters()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::setPosters));
+                .subscribe(this::updateViewModel));
     }
 
-    private void setPosters(@NonNull final SovietArtMePosters sovietArtMePosters) {
-        ((PosterAdapter) binding.overviewRecycler.getAdapter()).updatePosters(sovietArtMePosters.getPosters());
+    private void updateViewModel(@NonNull SovietArtMePosters sovietArtMePosters) {
+        mViewModel.setPosters(sovietArtMePosters.getPosters());
     }
 
     @Override

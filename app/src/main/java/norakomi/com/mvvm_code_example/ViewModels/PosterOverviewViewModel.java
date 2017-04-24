@@ -1,5 +1,7 @@
 package norakomi.com.mvvm_code_example.ViewModels;
 
+import android.databinding.ObservableArrayList;
+import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -21,7 +23,7 @@ import norakomi.com.mvvm_code_example.Views.ViewInterfaces.IPosterOverviewNaviga
 
 public class PosterOverviewViewModel extends ABaseViewModel {
 
-    private List<Poster> mRecyclerItems;
+    private ObservableList<Poster> mPosters = new ObservableArrayList<>();
 
     public PosterOverviewViewModel(@NonNull IDataModel dataModel) {
         super(dataModel);
@@ -31,8 +33,13 @@ public class PosterOverviewViewModel extends ABaseViewModel {
         mNavigator = new WeakReference<>(navigator);
     }
 
-    public void setItems(List<Poster> posters){
-        mRecyclerItems = posters;
+    public ObservableList<Poster> getPosters(){
+        return mPosters;
+    }
+
+    public void setPosters(List<Poster> posters){
+        mPosters.clear();
+        mPosters.addAll(posters);
     }
 
     public void posterClicked(@NonNull Poster poster) {

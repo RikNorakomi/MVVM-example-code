@@ -17,5 +17,5 @@ import rx.Observable;
 public interface IDataModel {
 
     @NonNull
-    Observable<SovietArtMePosters> getPosters();
+    Observable<SovietArtMePosters> loadPosters();
 }
