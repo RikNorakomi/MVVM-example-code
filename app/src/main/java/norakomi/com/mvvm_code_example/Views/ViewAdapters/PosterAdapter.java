@@ -1,11 +1,11 @@
 package norakomi.com.mvvm_code_example.Views.ViewAdapters;
 
 import android.databinding.BindingAdapter;
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ import java.util.List;
 import norakomi.com.mvvm_code_example.DataModel.Model.Poster;
 import norakomi.com.mvvm_code_example.R;
 import norakomi.com.mvvm_code_example.ViewModels.PosterOverviewViewModel;
+import norakomi.com.mvvm_code_example.databinding.RecyclerItemBinding;
 
 
 /**
@@ -42,13 +43,17 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.ViewHolder
 
     @Override
     public PosterAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyler_item, null);
-        return new ViewHolder(view);
+        RecyclerItemBinding binding = DataBindingUtil.inflate(
+                LayoutInflater.from(parent.getContext()),
+                R.layout.recycler_item,
+                parent, false);
+        return new ViewHolder(binding.getRoot());
     }
 
     @Override
     public void onBindViewHolder(PosterAdapter.ViewHolder holder, int position) {
-        holder.updateViewHolder(mPosters.get(position));
+        Poster poster = mPosters.get(position);
+        holder.binding.setPoster(poster);
     }
 
     @Override
@@ -58,20 +63,12 @@ public class PosterAdapter extends RecyclerView.Adapter<PosterAdapter.ViewHolder
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView title;
-        private Poster poster;
+        RecyclerItemBinding binding;
 
         private ViewHolder(View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.recycler_item_title);
-            title.setOnClickListener(view -> mViewModel.posterClicked(poster));
+            binding = DataBindingUtil.bind(itemView);
+            itemView.setOnClickListener(view -> mViewModel.posterClicked(binding.getPoster()));
         }
-
-        void updateViewHolder(Poster poster) {
-            this.poster = poster;
-            this.title.setText(poster.getTitle());
-
-        }
-
     }
 }
